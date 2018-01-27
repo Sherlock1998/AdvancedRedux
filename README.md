@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ReduxSimpleStarter
 
 Interested in learning [Redux](https://www.udemy.com/react-redux/)?
@@ -23,3 +24,7 @@ Click [here](https://github.com/StephenGrider/ReactStarter/releases) then downlo
 > npm install
 > npm start
 ```
+=======
+# AdvancedRedux
+Advanced Redux Course by Stephen Grider
+>>>>>>> 106d02b3adb9c916ab2737d2e6824f9f0a574b8c
