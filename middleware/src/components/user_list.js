@@ -6,12 +6,12 @@ class UserList extends Component {
   componentWillMount() {
     this.props.fetchUsers();
   }
-  renderUser(user) {
+  renderUser(user,key) {
     return (
-      <div className="card card-block">
+      <div className="card card-block"key={user.name}>
         <h4 className="card-title">{user.name}</h4>
-        <p className="card-text">Facebook MNC</p>
-        <a className="btn btn-primary">Email</a>
+        <p className="card-text">{user.company.name}</p>
+        <a className="btn btn-primary">{user.email}</a>
       </div>
     )
   }
