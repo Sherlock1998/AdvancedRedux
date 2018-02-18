@@ -9,6 +9,6 @@ module.exports = function(app) {
   app.post('/signup', Authentication.signup);
   app.post('/signin',requireSignin, Authentication.signin)
   app.get('/', requireAuth, function(req,res) {
-    res.send({hi:'there'})
+    res.send({message:'the treasure is friendship'});
   });
 }
