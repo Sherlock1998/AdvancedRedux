@@ -5,23 +5,29 @@ import * as actions from '../../actions';
 
 class Signin extends Component {
   handleFormSubmit({email,password}) {
-    console.log(email,password);
     this.props.signinUser({email,password});
   }
-
+  renderAlert() {
+    if (this.props.errorMsg) {
+      return (
+        // console.log('hello')
+        <div className="alert alert-danger">{this.props.errorMsg}</div>
+      )
+    }
+  }
   render() {
     const {handleSubmit, fields:{email,password}} = this.props;
-
     return (
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
         <fieldset className="form-group">
           <label>Email</label>
-          <input {...email} className="form-control" />
+          <input {...email} className="form-control"/>
         </fieldset>
         <fieldset className="form-group">
           <label>Password</label>
-          <input {...password} className="form-control" />
+          <input {...password} className="form-control" type="password" />
         </fieldset>
+        {this.renderAlert()}
         <button action="submit" className="btn btn-primary">Sign In</button>
       </form>
     );
@@ -30,7 +36,7 @@ class Signin extends Component {
 
 function mapStateToProps(state) {
   return {
-    error: state.auth.error,
+    errorMsg: state.auth.error,
   }
 }
 
