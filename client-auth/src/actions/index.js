@@ -32,6 +32,20 @@ export function signoutUser() {
   }
 }
 
+export function signupUser({email,password}) {
+  return function(dispatch) {
+    axios.post(`${rootURL}/signup`, {email,password})
+      .then(response => {
+        dispatch({type:AUTH_USER});
+        localStorage.setItem('token', response.data.token);
+        browserHistory.push('/features');
+      })
+      .catch(response => {
+        dispatch(authError(response.data.error));
+      })
+  }
+}
+
 export function authError(error) {
   return {
     type: AUTH_ERROR,
