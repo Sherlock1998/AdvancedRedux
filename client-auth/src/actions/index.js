@@ -17,7 +17,7 @@ export function signinUser({email,password}) {
     //Save JWT token
     localStorage.setItem('token',response.data.token);
     //redirect to /feature
-    browserHistory.push('/features');
+    browserHistory.push('/feature');
   })
   .catch(()=> {
     //if request is bad, show err msg
@@ -38,7 +38,7 @@ export function signupUser({email,password}) {
       .then(response => {
         dispatch({type:AUTH_USER});
         localStorage.setItem('token', response.data.token);
-        browserHistory.push('/features');
+        browserHistory.push('/feature');
       })
       .catch(response => {
         dispatch(authError(response.data.error));
